@@ -1,97 +1,57 @@
-🚀 Monday.com Business Intelligence AI Agent
+Monday.com Business Intelligence AI Agent
+Overview
 
-Production-ready AI-powered revenue intelligence agent that connects to Monday.com, cleans messy business data, performs executive-level analytics, and delivers founder-ready insights via dashboard + conversational AI.
+This project implements a production-ready AI-powered Business Intelligence Agent that integrates with Monday.com via live GraphQL API calls, processes inconsistent business data, and delivers executive-level revenue insights through both conversational AI and a real-time dashboard.
 
-🎯 Assignment Objective
+The system is designed to simulate founder-level decision support under real-world data constraints.
 
-Build a Business Intelligence AI Agent capable of:
+Key Capabilities
 
-Making LIVE Monday.com GraphQL API calls
+Live Monday.com GraphQL integration
 
-Handling messy, inconsistent business data
+Automated data cleaning and normalization
 
-Performing revenue intelligence analysis
+Probability-weighted revenue forecasting
 
-Answering founder-level strategic queries
+Pipeline velocity and conversion analysis
 
-Delivering insights conversationally
+Risk distribution modeling
 
-Providing a live hosted prototype
+LLM-powered tool-calling architecture
 
-🏗️ Architecture Overview
+Executive dashboard (Streamlit)
 
-The system follows a clean, modular production architecture:
+Automatic fallback to demo dataset if API unavailable
 
-app/
-│
-├── api/                  → Monday GraphQL client + Query builder
-├── services/             → Deals & Work Orders processing
-├── utils/                → Data cleaning & normalization
-├── agent/                → LLM orchestrator + Tool calling
-├── schemas/              → Tool & response schemas
-├── config/               → Settings & constants
-├── main.py               → EnterpriseBIAgent core logic
-│
-streamlit_app.py          → Executive dashboard frontend
-🧠 System Architecture Flow
-User Query
-     ↓
-LLM (Function Calling)
-     ↓
-Tool Registry
-     ↓
-Deals / Work Orders Service
-     ↓
-Business Logic Layer
-     ↓
-Executive Summary
-     ↓
-Streamlit Dashboard
-📊 Core Capabilities
-1️⃣ Live Monday.com Integration
+System Architecture
 
-Uses GraphQL API
+Layered, modular design:
 
-Pulls live board data
+API Layer – Monday GraphQL client
 
-Handles API errors gracefully
+Service Layer – Deals & Work Orders transformation
 
-Falls back to dummy dataset if API fails
+Business Logic Layer – Revenue intelligence engine
 
-2️⃣ Messy Data Handling
+Agent Layer – LLM orchestration + tool registry
 
-System automatically:
+Presentation Layer – Executive Streamlit dashboard
 
-Cleans masked revenue fields
+This separation ensures scalability, maintainability, and production readiness.
 
-Normalizes sector names
+Revenue Intelligence Metrics
 
-Parses inconsistent date formats
-
-Handles missing values
-
-Converts probability labels → weighted scores
-
-Example:
-
-High → 0.8
-Medium → 0.5
-Low → 0.2
-3️⃣ Revenue Intelligence Engine
-
-Implements:
+The agent computes:
 
 Total pipeline value
 
 Probability-weighted revenue
 
-90-day revenue forecast
+90-day forecast
 
 Conversion rate
 
 Pipeline velocity
-
-Risk distribution analysis
 
 Revenue by owner
 
@@ -99,9 +59,11 @@ Revenue by sector
 
 Revenue by stage
 
-4️⃣ AI Tooling Layer
+Risk categorization
 
-OpenAI function-calling tools:
+AI Tooling
+
+Implements OpenAI function-calling tools:
 
 fetch_deals
 
@@ -109,76 +71,43 @@ fetch_work_orders
 
 conversion_analysis
 
-LLM selects tool → tool executes → business logic summarizes → executive response generated.
+The LLM interprets founder-level queries, selects tools dynamically, and produces structured executive summaries.
 
-5️⃣ Executive Dashboard (Streamlit)
-
-Includes:
-
-KPI Overview Row
-
-Conversion %
-
-90-Day Forecast
-
-Pipeline Velocity
-
-Risk Distribution Chart
-
-Revenue by Owner
-
-Sector Contribution Pie Chart
-
-Revenue by Stage
-
-AI Insights Panel
-
-Filter controls (Sector / Owner)
-
-Live Data Source indicator
-
-Board-meeting ready UI.
-
-⚙️ Setup Instructions
-1️⃣ Clone Repository
-git clone <your-repo>
-cd monday-bi-agent
-2️⃣ Create Virtual Environment
+Setup
+1. Environment
 python -m venv .venv
 source .venv/bin/activate
-3️⃣ Install Dependencies
 pip install -r requirements.txt
-4️⃣ Create .env File
-OPENAI_API_KEY=your_openai_key
-MONDAY_API_KEY=your_monday_key
-DEALS_BOARD_ID=your_deals_board_id
-WORK_ORDERS_BOARD_ID=your_work_orders_board_id
-5️⃣ Run Streamlit App
+2. Environment Variables
+
+Create .env:
+
+OPENAI_API_KEY=your_key
+MONDAY_API_KEY=your_key
+DEALS_BOARD_ID=board_id
+WORK_ORDERS_BOARD_ID=board_id
+3. Run
 streamlit run streamlit_app.py
-🔄 Fallback Behavior
+Design Principles
 
-If:
+Clean separation of concerns
 
-Monday API fails
+Defensive data handling
 
-Credentials missing
+Minimal assumptions
 
-Network issue occurs
+Scalable architecture
 
-System automatically loads dummy dataset and continues functioning.
+Board-ready output
 
-This ensures always-on demo capability.
+Submission Includes
 
-📈 Design Decisions
+Live hosted dashboard
 
-Avoided complex GraphQL filtering → filtered in Python for reliability
+Monday board link
 
-Used heuristic forecasting (probability-weighted)
+Decision Log (PDF)
 
-Modular architecture for scalability
+Source code
 
-Separation of concerns for maintainability
-
-Clean error handling layer
-
-Transparent trace logging
+This README
