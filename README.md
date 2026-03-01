@@ -1,4 +1,8 @@
-Monday.com Business Intelligence AI Agent
+🚀 Revenue Intelligence Agent for Monday.com
+Turn messy deal data into board-ready revenue insights.
+
+This AI agent connects directly to Monday.com, cleans inconsistent business data, and transforms it into executive-grade revenue intelligence in minutes.
+
 Overview
 
 This project implements a production-ready AI-powered Business Intelligence Agent that integrates with Monday.com via live GraphQL API calls, processes inconsistent business data, and delivers executive-level revenue insights through both conversational AI and a real-time dashboard.
